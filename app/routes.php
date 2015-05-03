@@ -13,15 +13,18 @@
 
 Route::get('/', function()
 {
-	return View::make('pages.home');
+	$page = 'Inicio';
+	return View::make('pages.home', compact('page'));
 });
 
 Route::get('/about', function()
 {
-	return View::make('pages.about');
+	$page = 'About';
+	return View::make('pages.about', compact('page'));
 });
 
 Route::get('/contact', function()
 {
-	return View::make('pages.contact');
+	$page = 'Contact';
+	return View::make('pages.contact', compact('page'));
 });
