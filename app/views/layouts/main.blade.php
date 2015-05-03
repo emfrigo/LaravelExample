@@ -28,6 +28,6 @@
         		<!-- EOF Navbar Links-->
 			</div>
 		</nav>
-		@section('content')
+		@yield('content')
 	</body>
 </html>
