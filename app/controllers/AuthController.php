@@ -19,22 +19,17 @@ class AuthController extends \BaseController {
             // devolver una vista
             return /*Response::json(array('status' => true, 'message' => 'Chingon estas logueado'));*/Redirect::to('/user');
         } else {
-            return Response::json(array('status' => false, 'message' => 'Mamaste'));//Redirect::to('/user');
+            return /*Response::json(array('status' => false, 'message' => 'Mamaste'));*/Redirect::to('/login');
         }
- 
-        // La autenticación ha fallado re-direccionamos
-        // a la página anterior con los datos enviados
-        // y con un mensaje de error
-        return Redirect::back()->with('msg', 'Datos incorrectos, vuelve a intentarlo.');
 	}
 
 	public function logout()
 	{
-		 //Desconctamos al usuario
+		 //Desconectamos al usuario
         Auth::logout();
  
         //Redireccionamos al inicio de la app con un mensaje
-        return Redirect::to('/auth')->with('msg', 'Gracias por visitarnos!.');
+        return Redirect::to('/login');
 	}
 
 	/**

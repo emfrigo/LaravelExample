@@ -24,6 +24,7 @@
         			<ul class="nav navbar-nav navbar-right">
         				@if( Auth::check() )
         				<li><a href="{{asset('/user')}}"><span class="glyphicon glyphicon-user"></span>{{ Auth::user()->username }}</a></li>
+        				<li><a href="{{asset('/logout')}}">Logout</a></li>
         				@else
         				<li><a href="{{asset('/user')}}"><span class="glyphicon glyphicon-user"></span>User</a></li>
         				@endif
