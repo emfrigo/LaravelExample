@@ -28,3 +28,16 @@ Route::get('/contact', function()
 	$page = 'Contact';
 	return View::make('pages.contact', compact('page'));
 });
+
+Route::get('/auth', function()
+	{
+		$page = 'Loging';
+		return View::make('pages.auth', compact('page'));
+	});
+
+Route::get('/user', function()
+	{
+		$page = 'Usename';
+		$username = 'Example User';
+		return View::make('pages.user', compact(array('page', 'username')));
+	});

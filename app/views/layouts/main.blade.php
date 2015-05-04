@@ -22,12 +22,14 @@
         				<li><a href="{{asset('/contact')}}">Contact</a></li>
         			</ul>
         			<ul class="nav navbar-nav navbar-right">
-        				<li><a href="{{asset('#')}}"><span class="glyphicon glyphicon-user"></span>User</a></li>
+        				<li><a href="{{asset('/user')}}"><span class="glyphicon glyphicon-user"></span>User</a></li>
         			</ul>
         		</div>
         		<!-- EOF Navbar Links-->
 			</div>
 		</nav>
+
 		@yield('content')
+		
 	</body>
 </html>
