@@ -11,10 +11,11 @@
 |
 */
 
+// Ruta a la pagina principal
 Route::get('/', function()
 {
 	$page = 'Inicio';
-	return View::make('pages.home', compact('page'));
+	return View::make('pages.home', compact(array('page')));
 });
 
 Route::get('/about', function()
@@ -29,15 +30,27 @@ Route::get('/contact', function()
 	return View::make('pages.contact', compact('page'));
 });
 
-Route::get('/auth', function()
+Route::get('/login', function()
 	{
-		$page = 'Loging';
-		return View::make('pages.auth', compact('page'));
+		$page = 'Login';
+		return View::make('pages.login', compact(array('page')));
 	});
 
-Route::get('/user', function()
+Route::get('/user', ['before' => 'auth', function()
 	{
-		$page = 'Usename';
-		$username = 'Example User';
-		return View::make('pages.user', compact(array('page', 'username')));
-	});
+		$page = 'Usuario';
+		$username = Auth::user()->username;
+		return View::make('pages.user', compact('page'));
+	}]);
+
+ //Example routes
+
+//Página oculta donde sólo puede ingresar un usuario identificado
+//Route::get('/hidden', ['before' => 'auth', function(){
+ //   return View::make('user');
+//}]);
+
+//Procesa el formulario e identifica al usuario
+Route::post('/login', 'AuthController@login');
+//Desconecta al usuario
+//Route::get('/login', ['uses' => 'AuthController@logout', 'before' => 'auth']);

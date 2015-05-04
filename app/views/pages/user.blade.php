@@ -2,11 +2,12 @@
 
 @section('content')
 
-	@if(isset($username))
-		<div class="alert alert-success" role="alert">Bienvenido: <strong>{{ $username }}</strong></div>
-
+	<div class="container">
+	@if( Auth::check() )
+		<div class="alert alert-success" role="alert">Bienvenido: <strong>{{ Auth::user()->username }}</strong></div>
 	@else
-		<div class="alert alert-danger" role="alert"><strong>ERROR: </strong>No a iniciado sesion.</div>
-	@endif
-
+		<div class="alert alert-danger" role="alert"><strong>Error:</strong> favro de inciar sesión</div>
+	@endif	
+	</div>
+		
 @stop

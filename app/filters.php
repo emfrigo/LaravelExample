@@ -46,6 +46,7 @@ Route::filter('auth', function()
 			return Redirect::guest('login');
 		}
 	}
+
 });
 
 
@@ -67,7 +68,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check()) return Redirect::to('/user')->with('page', 'Login');
 });
 
 /*
