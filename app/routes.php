@@ -53,4 +53,4 @@ Route::get('/user', ['before' => 'auth', function()
 //Procesa el formulario e identifica al usuario
 Route::post('/login', 'AuthController@login');
 //Desconecta al usuario
-Route::get('/logout', 'AuthController@logout');
+//Route::get('/login', ['uses' => 'AuthController@logout', 'before' => 'auth']);
